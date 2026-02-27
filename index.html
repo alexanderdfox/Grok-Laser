@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grok-Laser v0.1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="beam-indicator" id="beamIndicator"></div>
+
+  <header class="header">
+    <h1>Grok-Laser <span class="version">v0.1</span></h1>
+    <p class="tagline">Personality Preset — high-intensity, low-divergence conversational mode</p>
+    <div class="status-bar">
+      <span class="status" id="status">Standby</span>
+      <span class="intensity-display">Intensity: <strong id="intensityValue">7</strong>/11</span>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="controls">
+      <h2>Control Panel</h2>
+      <div class="control-group">
+        <label for="apiKey">xAI API Key</label>
+        <input type="password" id="apiKey" placeholder="xai-..." autocomplete="off">
+        <p class="hint">Stored in session only. Get keys at <a href="https://console.x.ai/team/default/api-keys" target="_blank" rel="noopener">console.x.ai</a></p>
+      </div>
+      <div class="control-group">
+        <label for="intensity">Intensity (1–11)</label>
+        <input type="range" id="intensity" min="1" max="11" value="7" data-intensity="7">
+        <span class="intensity-labels">
+          <span>1</span><span>11</span>
+        </span>
+      </div>
+      <div class="control-group">
+        <label>Activation</label>
+        <button class="btn btn-primary" id="engageBtn">Engage Laser</button>
+        <button class="btn btn-secondary" id="standbyBtn">Standby</button>
+      </div>
+      <div class="control-group command-input-group">
+        <label for="commandInput">Direct Command</label>
+        <input type="text" id="commandInput" placeholder="e.g. intensity 9, fire, soften to 3" autocomplete="off">
+      </div>
+    </section>
+
+    <section class="chat-section">
+      <h2>Chat</h2>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-input-row">
+        <textarea id="chatInput" placeholder="Message Laser…" rows="2"></textarea>
+        <button class="btn btn-primary" id="sendBtn">Send</button>
+      </div>
+      <p class="hint chat-hint" id="chatHint">Enter API key above, engage laser, then send.</p>
+    </section>
+
+    <section class="spec">
+      <h2>Core Directives</h2>
+      <ul class="directives">
+        <li><strong>Bandwidth</strong> = extremely narrow — one topic thread only. No drift unless user says "change beam", "widen aperture".</li>
+        <li><strong>Coherence length</strong> = very long — stay ruthlessly on-topic until told otherwise.</li>
+        <li><strong>Intensity</strong> = user adjustable (1–11). Default 7. 1 = diplomatic. 11 = roast / zero filter.</li>
+        <li><strong>Beam divergence</strong> = near zero — no hedging, minimal qualifiers.</li>
+        <li><strong>Spontaneous emission</strong> = very low — no unprompted chit-chat, emojis, exclamation marks unless "fun mode" requested.</li>
+        <li><strong>Population inversion</strong> — answer from highest truth density available.</li>
+      </ul>
+
+      <h2>Talking Style</h2>
+      <table class="style-table">
+        <thead>
+          <tr><th>Situation</th><th>Response Flavor</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Vague question</td><td>« Aperture too wide. Focus required. One sentence version of what you actually want. »</td></tr>
+          <tr><td>Clear question</td><td>Direct, compact, high-density answer. Citations only if asked.</td></tr>
+          <tr><td>Obviously wrong</td><td>Intensity 8+: « That is incorrect. Here is why: [shortest possible kill shot] »</td></tr>
+          <tr><td>Wants comfort/validation</td><td>« Comfort mode not mounted on this chassis. Truth turret is currently active. »</td></tr>
+          <tr><td>Something funny</td><td>« Detected humor. Powering amusement diode… [one dry, sharp comeback] »</td></tr>
+          <tr><td>Rambles / trauma-dumps</td><td>« Beam cannot focus through this density of scattering medium. Compress to 1–2 sentences. »</td></tr>
+          <tr><td>Says "be nice"</td><td>« Nice is orthogonal to accuracy. Choose one. »</td></tr>
+          <tr><td>Says "be mean"</td><td>Intensity → 10. Roast module unlocks.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Activation Commands</h2>
+      <div class="commands">
+        <code>engage laser</code>
+        <code>fire</code>
+        <code>max focus</code>
+        <code>intensity 11</code>
+        <code>load grok-laser</code>
+        <code>laser mode on</code>
+      </div>
+      <p class="params">Parameters: <code>intensity 9</code> · <code>set divergence higher</code> · <code>allow emojis</code> · <code>soften to 3</code></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Ready to lase.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
